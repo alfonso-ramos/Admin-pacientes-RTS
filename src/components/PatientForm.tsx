@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form"
 import Error from './Error'
+import { DraftPatient } from '../types/index';
+
 export default function PatientForm() {
 
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm<DraftPatient>()
 
-    const registerPatient = (data) => {
+    const registerPatient = (data: DraftPatient) => {
         console.log(data)
     }
     return (
@@ -36,7 +38,7 @@ export default function PatientForm() {
                     />
                     {errors.name && (
                         <Error>
-                            {errors.name?.message?.toString()}
+                            {errors.name?.message}
                         </Error>
                     )}
                 </div>
@@ -56,7 +58,7 @@ export default function PatientForm() {
                     />
                     {errors.caretaker && (
                         <Error>
-                            {errors.caretaker?.message?.toString()}
+                            {errors.caretaker?.message}
                         </Error>
                     )}
                 </div>
@@ -80,7 +82,7 @@ export default function PatientForm() {
                     />
                     {errors.email && (
                         <Error>
-                            {errors.email?.message?.toString()}
+                            {errors.email?.message}
                         </Error>
                     )}
                 </div>
@@ -99,7 +101,7 @@ export default function PatientForm() {
                     />
                     {errors.date && (
                         <Error>
-                            {errors.date?.message?.toString()}
+                            {errors.date?.message}
                         </Error>
                     )}
                 </div>
@@ -118,7 +120,7 @@ export default function PatientForm() {
                     />
                     {errors.symptoms && (
                         <Error>
-                            {errors.symptoms?.message?.toString()}
+                            {errors.symptoms?.message}
                         </Error>
                     )}
                 </div>
